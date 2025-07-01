@@ -1,0 +1,44 @@
+<div class="wrap-box"></div>
+<div class="header_bottom" xmlns:th="http://www.thymeleaf.org">
+	<div class="container">
+		<div class="col-xs-8 header-bottom-left">
+			<div class="col-xs-2 logo">
+				<h1>
+					<a href="#"><span>Online Event </span>Management</a>
+				</h1>
+			</div>
+			<div class="col-xs-6 menu">
+				<ul class="megamenu skyblue">
+				
+					<li class="active grid" th:switch="${session.role}">
+						<a th:case="'admin'" href="/addvenue">Add Venu</a>
+					</li>
+					
+					<li class="active grid">
+						<a href="/viewvenues">Venues</a>
+					</li>
+					
+					<li class="active grid" th:switch="${session.role}">
+						<a th:case="'user'" href="/viewmyBookings">View Bookings</a>
+					</li>
+					
+					<li class="active grid" th:switch="${session.role}">
+						<a th:case="'admin'" href="/viewfeedbacks">View Feedbacks</a>
+						<a th:case="'user'" href="/addfeedback">Post Feedback</a>
+					</li>
+					
+				</ul>
+			</div>
+		</div>
+		<div class="col-xs-4 header-bottom-right">
+			<div class="box_1-cart">
+				<div class="box_11">
+					<a href="/logout">Logout</a>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>

@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="/header"></th:block>
+</head>
+<body>
+	<th:block th:include="/menu2"></th:block>
+	<div class="single_top">
+		<!-- --------------------------------------product start-------------------------------------- -->
+		<div class="grids_of_4">
+	
+			<table id="customers">
+				<tr>
+					<th>Venue Name</th>
+					<th>Event Name</th>
+					<th>Date</th>
+					<th>Food</th>
+					<th>Attendees</th>
+					<th>Services</th>
+					<th>Email</th>
+					<th>Customer Name</th>
+					<th>Mobile</th>
+					<th>Address</th>
+					<th>Price</th>
+				</tr>
+				
+				<tr th:each="booking : ${bookings}">
+					
+					<td th:text="${booking.venuename}"></td>
+					<td th:text="${booking.eventname}"></td>
+					<td th:text="${booking.date}"></td>
+					<td th:text="${booking.cateringtype}"></td>
+					<td th:text="${booking.cateringcount}"></td>
+					
+					<td th:text="${booking.services}"></td>
+					<td th:text="${booking.username}"></td>
+					<td th:text="${booking.customername}"></td>
+					<td th:text="${booking.mobile}"></td>
+					<td th:text="${booking.address}"></td>
+					<td th:text="${booking.price}"></td>
+					
+				</tr>
+			</table>
+			
+		</div>
+		<!-- --------------------------------------product end-------------------------------------- -->
+	</div>
+	<th:block th:include="/footer"></th:block>
+</body>
+</html>

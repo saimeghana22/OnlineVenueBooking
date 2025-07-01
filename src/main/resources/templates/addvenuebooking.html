@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<th:block th:include="/header"></th:block>
+</head>
+<body>
+	<th:block th:include="/menu2"></th:block>
+	<div class="single_top">
+		<div class="container">
+			<div class="pages">
+				<div class="comments-area">
+					<form th:action="@{/savevenueBooking}" th:object="${venueBooking}" method="post">
+						<p>
+							<label>Event Name</label> <span>*</span> <input type="text" th:field="*{eventname}" required="required">
+						</p>
+						<p>
+							<label>Select Date of Event</label> <span>*</span> <input type="date" th:field="*{date}" required="required">
+						</p>
+						<p>
+							<label>Select Food Type</label> <span>*</span>
+							<select name="cateringtype" required="required">
+								<option value="">--select--</option>
+								<option value="veg">Veg</option>
+								<option value="nonveg">Nonveg</option>
+							</select>
+						</p>
+						<p>
+							<label>No of Attendees</label> <span>*</span> <input type="text" th:field="*{cateringcount}" required="required">
+						</p>
+						
+						<p>
+							<label>Select Services</label> <span>*</span>
+							<select name="services" required="required" multiple="multiple">
+								<option value="">--select--</option>
+								<option value="decoration">Decoration</option>
+								<option value="makeup">Makeup</option>
+								<option value="photographer">Photographer</option>
+							</select>
+						</p>
+					
+						<p>
+							<input type="submit" value="Book Venue">
+						</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<th:block th:include="/footer"></th:block>
+</body>
+</html>

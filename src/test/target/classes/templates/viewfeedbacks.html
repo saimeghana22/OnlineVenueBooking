@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="/header"></th:block>
+</head>
+<body>
+	<th:block th:include="/menu2"></th:block>
+	<div class="single_top">
+		<!-- --------------------------------------product start-------------------------------------- -->
+		<div class="grids_of_4">
+
+			<table id="customers">
+				<tr>
+					<th>Message</th>
+					<th>Date</th>
+					<th>Sender</th>
+				</tr>
+				<tr th:each="feedback : ${feedbacks}">
+					<td th:text="${feedback.message}"></td>
+					<td th:text="${feedback.datetime}"></td>
+					<td th:text="${feedback.sender}"></td>
+				</tr>
+			</table>
+			
+		</div>
+		<!-- --------------------------------------product end-------------------------------------- -->
+	</div>
+	<th:block th:include="/footer"></th:block>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:include="/header"></th:block>
+</head>
+<body>
+	<th:block th:include="/menu2"></th:block>
+	<div class="single_top">
+		<form th:action="@{/addvenueBooking}" th:object="${venue}" method="post">
+			<input type="hidden" name="venueid" th:value="${venue.id}">
+			<div class="container">
+				<div class="single_grid">
+					<div class="grid images_3_of_2">
+						<ul id="etalage">
+							<li><img class="etalage_source_image"
+								th:src="@{'venueimages/'+${venue.imageName}}" title="" /></li>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+					<div class="desc1 span_3_of_2">
+						<ul class="back">
+							<li><i class="back_arrow"> </i><a href="/viewvenues">Back</a></li>
+						</ul>
+						
+						<h1 th:text="@{'Name: '+${venue.name}}"></h1>
+						<p th:text="@{'Landmark: '+${venue.landmark}}"></p>
+						<p th:text="@{'SQFT Area: '+${venue.area}}"></p>
+						
+						<p th:text="@{'Description: '+${venue.description}}"></p>
+						
+						<p th:text="@{'Veg Food Price: '+${venue.vegfoodprice}}"></p>
+						<p th:text="@{'Nonveg Food Price: '+${venue.nonvegfoodprice}}"></p>
+						<p th:text="@{'Decoration Price: '+${venue.decorationprice}}"></p>
+						<p th:text="@{'Makeup Price: '+${venue.mackupprice}}"></p>
+						<p th:text="@{'Photographer Price: '+${venue.photographerprice}}"></p>
+						
+						<div class="simpleCart_shelfItem">
+							<div class="price_single">
+								<div class="head">
+									<h2>
+										₹<span class="amount item_price" th:text="${venue.price}"></span>
+									</h2>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<div th:switch="${session.role}">
+								<input th:case="'user'" type="submit" value="book venue"/>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<th:block th:include="/footer"></th:block>
+</body>
+</html>

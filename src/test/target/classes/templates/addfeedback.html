@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<th:block th:include="/header"></th:block>
+</head>
+<body>
+	<th:block th:include="/menu2"></th:block>
+	<div class="single_top">
+		<div class="container">
+			<div class="pages">
+				<div class="comments-area">
+					<h3>Post Feedback</h3>
+					<p th:text="@{${message}}" style="color: red;size: 50px;"></p>
+					<form th:action="@{/savefeedback}" th:object="${feedback}" method="post">
+						<p>
+							<label>Message</label> <span>*</span>
+							<textarea th:field="*{message}" required="required"></textarea>
+						</p>
+						<p>
+							<input type="submit" value="Send Message">
+						</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<th:block th:include="/footer"></th:block>
+</body>
+</html>
